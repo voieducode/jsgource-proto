@@ -1,0 +1,43 @@
+{
+  "name": "jsgource-proto",
+  "version": "1.0.0",
+  "description": "*Exploring how to port Gource to JS*",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./bundler/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./bundler/webpack.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voieducode/jsgource-proto.git"
+  },
+  "keywords": [],
+  "author": "Mohnish Landge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/voieducode/jsgource-proto/issues"
+  },
+  "homepage": "https://github.com/voieducode/jsgource-proto#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.0.0",
+    "glslify-loader": "^2.0.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "raw-loader": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "three": "^0.149.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.7"
+  }
+}
