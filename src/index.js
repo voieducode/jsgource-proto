@@ -92,18 +92,25 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * GUI Controls
  */
 const settings = {
-  rotate: true
+  rotate: 'z'
 }
 const gui = new dat.GUI()
 const geometryFolder = gui.addFolder('Geometry')
 geometryFolder.add(mesh.rotation, 'x', 0, Math.PI * 2)
 geometryFolder.add(mesh.rotation, 'y', 0, Math.PI * 2)
 geometryFolder.add(mesh.rotation, 'z', 0, Math.PI * 2)
-geometryFolder.add(settings, 'rotate')
+geometryFolder.add(settings, 'rotate', ['no', 'x', 'y', 'z'])
 geometryFolder.open()
+const controlsFolder = gui.addFolder('Controls')
+controlsFolder.add(controls, 'autoRotate')
+controlsFolder.open()
 const cameraFolder = gui.addFolder('Camera')
+cameraFolder.add(camera.position, 'x', 0, 50)
+cameraFolder.add(camera.position, 'y', 0, 50)
 cameraFolder.add(camera.position, 'z', 0, 50)
 cameraFolder.open();
+
+controls.addEventListener('change', () => cameraFolder.updateDisplay())
 
 /**
  * Animate
@@ -112,11 +119,17 @@ const clock = new THREE.Clock()
 const tick = () => {
   const elapsedTime = clock.getElapsedTime()
 
-  if (settings.rotate) {
+  if (settings.rotate != 'no') {
     stats.begin()
-    //mesh.rotation.y += 0.01 * Math.sin(1)
-    //mesh.rotation.y += 0.01 * Math.sin(1)
-    mesh.rotation.z += 0.01 * Math.sin(1)
+    if (settings.rotate == 'x') {
+      mesh.rotation.x += 0.01 * Math.sin(1)
+    }
+    if (settings.rotate == 'y') {
+      mesh.rotation.y += 0.01 * Math.sin(1)
+    }
+    if (settings.rotate == 'z') {
+      mesh.rotation.z += 0.01 * Math.sin(1)
+    }
     stats.end()
   }
 
