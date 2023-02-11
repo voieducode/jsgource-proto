@@ -131,6 +131,7 @@ const tick = () => {
       mesh.rotation.z += 0.01 * Math.sin(1)
     }
     stats.end()
+    geometryFolder.updateDisplay()
   }
 
   // Update controls
