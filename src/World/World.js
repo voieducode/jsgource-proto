@@ -1,5 +1,6 @@
 import { createCamera } from "./components/camera";
 import { createCube } from "./components/cube";
+import { createLights } from "./components/lights";
 import { createScene } from "./components/scene";
 import { createRenderer } from "./system/renderer";
 import { Resizer } from "./system/Resizer";
@@ -16,8 +17,9 @@ class World {
 		container.append(renderer.domElement);
 
 		const cube = createCube();
+		const lights = createLights();
 
-		scene.add(cube);
+		scene.add(cube, lights);
 
 		const resizer = new Resizer(container, camera, renderer);
 
