@@ -9,23 +9,25 @@ let renderer;
 let scene;
 
 class World {
-  constructor(container) {
-    camera = createCamera();
-    scene = createScene();
-    renderer = createRenderer();
-    container.append(renderer.domElement);
+	constructor(container) {
+		camera = createCamera();
+		scene = createScene();
+		renderer = createRenderer();
+		container.append(renderer.domElement);
 
-    const cube = createCube();
+		const cube = createCube();
 
-    scene.add(cube);
+		scene.add(cube);
 
-    const resizer = new Resizer(container, camera, renderer);
-  }
+		const resizer = new Resizer(container, camera, renderer);
 
-  render() {
-    // draw a single fame
-    renderer.render(scene, camera);
-  }
+		resizer.noop();
+	}
+
+	render() {
+		// draw a single fame
+		renderer.render(scene, camera);
+	}
 }
 
 export { World };

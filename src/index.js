@@ -1,14 +1,14 @@
-import "./style/main.css";
 import { World } from "./World/World.js";
 
 function main() {
-  // Canvas
-  const canvas = document.querySelector("canvas.webgl");
+	// Get a reference to the container element
+	const container = document.querySelector("#scene-container");
 
-  // Set up the world
-  const world = new World(canvas);
+	// create a new world
+	const world = new World(container);
 
-  world.render();
+	// draw the scene
+	world.render();
 }
 
 main();
