@@ -1,2 +1,3 @@
 # jsgource-proto
- Prototype for JS version of Gource
+
+Prototype for JS version of Gource
